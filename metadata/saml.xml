@@ -1,0 +1,22 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="nestjs-sp">
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                             Location="http://localhost:3000/auth/logout/callback"/>
+
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                                  Location="http://localhost:3000/auth/login/callback" index="0"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post"
+                                  Location="http://localhost:3000/auth/login/callback" index="1"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"
+                                  Location="http://localhost:3000/auth/login/callback" index="2"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01"
+                                  Location="http://localhost:3000/auth/login/callback" index="3"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:profiles:holder-of-key:SSO:browser"
+                                  Location="http://localhost:3000/auth/login/callback" index="4"/>
+    </SPSSODescriptor>
+    <ContactPerson contactType="technical">
+        <GivenName>Administrator</GivenName>
+        <EmailAddress>noreply@example.org</EmailAddress>
+    </ContactPerson>
+</EntityDescriptor>
