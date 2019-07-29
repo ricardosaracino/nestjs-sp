@@ -10,7 +10,7 @@ import {SamlStrategy} from './saml.strategy';
     ],
     controllers: [AuthController],
     providers: [AuthService, SamlStrategy],
-    exports: [PassportModule, AuthService],
+    exports: [AuthService, SamlStrategy, PassportModule],
 })
 export class AuthModule {
 }
