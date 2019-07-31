@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2019-08-02T12:04:36Z"
+                     cacheDuration="PT604800S" entityID="nestjs-sp-signed-0010">
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false"
+                        protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>
+                        MIICRjCCAa+gAwIBAgIBADANBgkqhkiG9w0BAQUFADBAMQswCQYDVQQGEwJjYTELMAkGA1UECAwCT04xEDAOBgNVBAoMB3JpY2FyZG8xEjAQBgNVBAMMCW5lc3Rqcy1zcDAeFw0xOTA3MzExMTU3NTVaFw0yOTA3MjgxMTU3NTVaMEAxCzAJBgNVBAYTAmNhMQswCQYDVQQIDAJPTjEQMA4GA1UECgwHcmljYXJkbzESMBAGA1UEAwwJbmVzdGpzLXNwMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqYZAnxwaIUW9JspCwClPVAjjNnoUZMYN9MWmO6n1nCOxRn5g4wIbIyESP89pw5ntunOW/1rn5weGF3U+d0kEx2WgdvUzkajg6Z2fXm+I1fcmKK+/DUQLBjSPWDiDUX8ZE0JqexH61QYe4REoK9z05cR62ZhIP1jCPMRAR46UctQIDAQABo1AwTjAdBgNVHQ4EFgQUc5IDRIxDZAh8ejTy4l6mpEwvg8MwHwYDVR0jBBgwFoAUc5IDRIxDZAh8ejTy4l6mpEwvg8MwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQAuN4ouHg0u+I0ADpk7KhT90VqbzOLMCs0qcpHKO0gVZD4nIK4kC5JgytAL0hZUcUsAJGAak19rRi2ZZgF+c0Lf/GA+4sVSj4v5vhMWqwj4q6Xfo8cGG2ij6T7A1cFeRntFf0Ens8vvmKBZ7ce+Hs3zWQlmf+sF/qY2a6eILBLIxQ==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="encryption">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>
+                        MIICRjCCAa+gAwIBAgIBADANBgkqhkiG9w0BAQUFADBAMQswCQYDVQQGEwJjYTELMAkGA1UECAwCT04xEDAOBgNVBAoMB3JpY2FyZG8xEjAQBgNVBAMMCW5lc3Rqcy1zcDAeFw0xOTA3MzExMTU3NTVaFw0yOTA3MjgxMTU3NTVaMEAxCzAJBgNVBAYTAmNhMQswCQYDVQQIDAJPTjEQMA4GA1UECgwHcmljYXJkbzESMBAGA1UEAwwJbmVzdGpzLXNwMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqYZAnxwaIUW9JspCwClPVAjjNnoUZMYN9MWmO6n1nCOxRn5g4wIbIyESP89pw5ntunOW/1rn5weGF3U+d0kEx2WgdvUzkajg6Z2fXm+I1fcmKK+/DUQLBjSPWDiDUX8ZE0JqexH61QYe4REoK9z05cR62ZhIP1jCPMRAR46UctQIDAQABo1AwTjAdBgNVHQ4EFgQUc5IDRIxDZAh8ejTy4l6mpEwvg8MwHwYDVR0jBBgwFoAUc5IDRIxDZAh8ejTy4l6mpEwvg8MwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQAuN4ouHg0u+I0ADpk7KhT90VqbzOLMCs0qcpHKO0gVZD4nIK4kC5JgytAL0hZUcUsAJGAak19rRi2ZZgF+c0Lf/GA+4sVSj4v5vhMWqwj4q6Xfo8cGG2ij6T7A1cFeRntFf0Ens8vvmKBZ7ce+Hs3zWQlmf+sF/qY2a6eILBLIxQ==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+            <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc">
+                <KeySize xmlns="http://www.w3.org/2001/04/xmlenc#">128</KeySize>
+            </md:EncryptionMethod>
+        </md:KeyDescriptor>
+
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                                Location="http://localhost:3000/auth/logout/callback"/>
+
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                                     Location="http://localhost:3000/auth/login/callback" index="0"/>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post"
+                                     Location="http://localhost:3000/auth/login/callback" index="1"/>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"
+                                     Location="http://localhost:3000/auth/login/callback" index="2"/>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01"
+                                     Location="http://localhost:3000/auth/login/callback" index="3"/>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:profiles:holder-of-key:SSO:browser"
+                                     Location="http://localhost:3000/auth/login/callback" index="4"/>
+    </md:SPSSODescriptor>
+</md:EntityDescriptor>

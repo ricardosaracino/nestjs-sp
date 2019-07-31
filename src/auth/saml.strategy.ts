@@ -9,7 +9,10 @@ export class SamlStrategy extends PassportStrategy(Strategy, 'saml') {
 
     constructor(private readonly authService: AuthService) {
         super(samlPassportConf);
+
+        console.log(samlPassportConf);
     }
+
 
     async validate(profile, done: Function) {
 
