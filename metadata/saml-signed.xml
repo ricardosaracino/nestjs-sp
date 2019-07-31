@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2019-08-02T12:04:36Z"
-                     cacheDuration="PT604800S" entityID="nestjs-sp-signed-0010">
+                     cacheDuration="PT604800S" entityID="nestjs-sp-signed-0012">
     <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false"
                         protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
         <md:KeyDescriptor use="signing">
@@ -24,6 +24,10 @@
                 <KeySize xmlns="http://www.w3.org/2001/04/xmlenc#">128</KeySize>
             </md:EncryptionMethod>
         </md:KeyDescriptor>
+
+        <md:NameIDFormat>
+            urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        </md:NameIDFormat>
 
         <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
                                 Location="http://localhost:3000/auth/logout/callback"/>
