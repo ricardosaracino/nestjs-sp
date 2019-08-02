@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2019-08-02T12:04:36Z"
-                     cacheDuration="PT604800S" entityID="nestjs-sp-signed-0012">
-    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false"
+                     cacheDuration="PT604800S" entityID="nestjs-sp-signed-0070">
+
+    <!--todo specify assertion encryption required in sp metadata -->
+    <!--todo AuthnRequestsSigned="true" -->
+
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true"
                         protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
         <md:KeyDescriptor use="signing">
             <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -20,9 +24,9 @@
                     </ds:X509Certificate>
                 </ds:X509Data>
             </ds:KeyInfo>
-            <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc">
-                <KeySize xmlns="http://www.w3.org/2001/04/xmlenc#">128</KeySize>
-            </md:EncryptionMethod>
+
+            <!-- Used for Assertion Encryption (passport-saml only supports rsa-oaep-mgf1p OR rsa-1_5) -->
+            <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5"/>
         </md:KeyDescriptor>
 
         <md:NameIDFormat>
@@ -43,4 +47,18 @@
         <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:profiles:holder-of-key:SSO:browser"
                                      Location="http://localhost:3000/auth/login/callback" index="4"/>
     </md:SPSSODescriptor>
+
+    <md:Organization>
+        <md:OrganizationName xml:lang="en-US">ricardosaracino</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="en-US">ricardosaracino</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="en-US">http://localhost</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:GivenName>Ricardo Saracino Contact</md:GivenName>
+        <md:EmailAddress>contact@email.ca</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+        <md:GivenName>Ricardo Saracino Support</md:GivenName>
+        <md:EmailAddress>support@email.ca</md:EmailAddress>
+    </md:ContactPerson>
 </md:EntityDescriptor>

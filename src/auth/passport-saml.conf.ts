@@ -1,7 +1,10 @@
 import * as fs from 'fs';
 
 export const samlPassportConf = {
-    issuer: 'nestjs-sp-signed-0010', // match metadata entityID
+    issuer: 'nestjs-sp-signed-0070', // match metadata entityID
+
+    identifierFormat: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+
     callbackUrl: 'http://localhost:3000/auth/login/callback',
     entryPoint: 'http://idp5.canadacentral.cloudapp.azure.com/opensso/SSORedirect/metaAlias/idp',
     logoutUrl: 'http://idp5.canadacentral.cloudapp.azure.com/opensso/IDPSloRedirect/metaAlias/idp',
