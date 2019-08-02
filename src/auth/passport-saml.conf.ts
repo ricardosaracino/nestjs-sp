@@ -1,5 +1,8 @@
 import * as fs from 'fs';
 
+/**
+ *  https://github.com/bergie/passport-saml
+ */
 export const samlPassportConf = {
     issuer: 'nestjs-sp-signed-0070', // match metadata entityID
 
@@ -10,6 +13,5 @@ export const samlPassportConf = {
     logoutUrl: 'http://idp5.canadacentral.cloudapp.azure.com/opensso/IDPSloRedirect/metaAlias/idp',
 
     privateCert: fs.readFileSync('cert/privatekey.pem', 'utf-8'),
-
     decryptionPvk: fs.readFileSync('cert/privatekey.pem', 'utf-8'),
 };

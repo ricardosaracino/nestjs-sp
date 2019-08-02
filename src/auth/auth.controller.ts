@@ -16,7 +16,7 @@ export class AuthController {
     @UseGuards(AuthGuard('saml'))
     @ApiOperation({title: 'Initiates the SAML login flow'})
     public login(@Req() req, @Res() res) {
-        res.send('<h1>Login Failure!!</h1>');
+        res.status(401).send('<h1>Login Failure</h1>');
     }
 
     @Post('login/callback')
@@ -27,9 +27,11 @@ export class AuthController {
         // add to passport
         req.login(user, (err, req) => {
             if (err) {
-                res.send('<h1>Login Failure!!</h1>');
+                res.status(401).send('<h1>Login Failure</h1>');
             } else {
-                res.send('<h1>Login Success!!</h1>');
+                res.status(200).send('<h1>Login Success</h1>' +
+                    '<h2><a href="/auth/logout">Logout</a></h2>' +
+                    '<h2><a href="/auth/user" target="_blank">User</a></h2>');
             }
         });
     }
@@ -47,11 +49,12 @@ export class AuthController {
     }
 
     @Get('logout/callback')
-    //@UseGuards(AuthGuard('saml'))
     @ApiOperation({title: 'Handles the SAML logout'})
     public logoutCallback(@Req() req, @Res() res) {
         req.logout();
-        res.send('<h1>Logout Success!!</h1>');
+        res.send('<h1>Logout Success</h1>' +
+            '<h2><a href="/auth/login">Login</a></h2>' +
+            '<h2><a href="/auth/user" target="_blank">User</a></h2>');
     }
 
     @Get('user')

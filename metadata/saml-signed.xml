@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2019-08-02T12:04:36Z"
-                     cacheDuration="PT604800S" entityID="nestjs-sp-signed-0070">
+                     cacheDuration="PT604800S" entityID="nestjs-sp-signed-0090">
 
     <!--todo specify assertion encryption required in sp metadata -->
-    <!--todo AuthnRequestsSigned="true" -->
+    <!--todo AuthnRequestsSigned="true"
+
+        libSAML2:08/02/2019 03:16:50:299 PM UTC: Thread[http-nio-80-exec-8,5,main]: TransactionId[f1638b0a-6687-4953-ae04-8ce8c9299079-62363]
+        ERROR: UtilProxySAMLAuthenticator.authenticate: authn request destination verification failed for
+        IdpEntity: http://x.canadacentral.cloudapp.azure.com:80/opensso
+        MetaAlias: /idp Destination: http://x.canadacentral.cloudapp.azure.com/opensso/SSORedirect/metaAlias/idp
+        Location: http://x.canadacentral.cloudapp.azure.com:80/opensso/SSORedirect/metaAlias/idp
+    -->
 
     <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true"
                         protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
